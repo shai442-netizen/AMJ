@@ -593,3 +593,38 @@ nav {
   border-color: rgba(29, 36, 48, 0.35) !important;
   background: rgba(29, 36, 48, 0.06) !important;
 }
+@media (max-width: 960px) {
+  /* Hide nav on mobile - the mobile bottom bar already has the links */
+  nav {
+    display: none;
+  }
+
+  /* Fix header to be cleaner */
+  .header-inner {
+    min-height: 56px;
+    padding: 0.75rem 0;
+    align-items: center;
+  }
+
+  /* Fix footer phone number breaking */
+  .footer-links {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+  }
+
+  .footer-links a {
+    white-space: nowrap;
+  }
+
+  /* Fix footer layout */
+  .footer-inner {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  /* Reduce hero heading size on mobile */
+  .hero-copy h1 {
+    font-size: 2.4rem;
+  }
+}
