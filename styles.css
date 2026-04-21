@@ -580,3 +580,12 @@ nav {
     border-radius: 20px;
   }
 }
+.cta-section .cta-grid p {
+  color: var(--text);
+}
+
+.cta-section .button-secondary {
+  color: var(--text);
+  border-color: rgba(29, 36, 48, 0.35);
+  background: rgba(29, 36, 48, 0.06);
+}
