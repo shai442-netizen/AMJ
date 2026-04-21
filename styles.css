@@ -589,3 +589,8 @@ nav {
   border-color: rgba(29, 36, 48, 0.35);
   background: rgba(29, 36, 48, 0.06);
 }
+.contact-block .button-secondary {
+  color: var(--text) !important;
+  border-color: rgba(29, 36, 48, 0.35) !important;
+  background: rgba(29, 36, 48, 0.06) !important;
+}
