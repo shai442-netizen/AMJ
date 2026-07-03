@@ -226,19 +226,35 @@ img,svg{max-width:100%;display:block}
   box-shadow:0 6px 14px rgba(13,42,71,.18);
 }
 .shade.zebra{
+  --zperiod:40px;
+  --zshift:0px;
+  background:none;
+}
+.shade.zebra::before,
+.shade.zebra::after{
+  content:"";position:absolute;inset:0;z-index:0;
+}
+/* back layer: fixed bands */
+.shade.zebra::before{
   background:repeating-linear-gradient(
     to bottom,
-    rgba(246,243,235,.97) 0 22px,
-    rgba(246,243,235,.28) 22px 40px
+    rgba(246,243,235,.96) 0 calc(var(--zperiod)/2),
+    rgba(246,243,235,.16) calc(var(--zperiod)/2) var(--zperiod)
   );
 }
-.mini .shade.zebra{
+/* front layer: slides across the back layer as the shade travels,
+   sheer bands are a 3% mesh (slight blur) */
+.shade.zebra::after{
   background:repeating-linear-gradient(
     to bottom,
-    rgba(246,243,235,.97) 0 12px,
-    rgba(246,243,235,.28) 12px 22px
+    rgba(240,236,226,.94) 0 calc(var(--zperiod)/2),
+    rgba(246,243,235,.14) calc(var(--zperiod)/2) var(--zperiod)
   );
+  background-position-y:var(--zshift);
+  backdrop-filter:blur(1px);
+  -webkit-backdrop-filter:blur(1px);
 }
+.mini .shade.zebra{--zperiod:24px}
 .shade.screen{
   background:linear-gradient(180deg,rgba(244,239,229,.82) 0%,rgba(236,229,214,.8) 100%);
   backdrop-filter:blur(3px) saturate(.9);
@@ -742,7 +758,7 @@ footer a:hover{text-decoration:underline}
       <div class="contact-lines">
         <a href="tel:+16047214719">604-721-4719</a>
         <a href="https://wa.me/16047214719?text=Hi%20AMJ%20Blinds%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener">Message us on WhatsApp</a>
-        <a href="mailto:shai@amjblinds.com">Shai@AMJBlinds.com</a>
+        <a href="mailto:Shai@AMJblinds.com">Shai@AMJblinds.com</a>
       </div>
     </div>
     <div class="form reveal" id="quoteForm">
@@ -796,13 +812,29 @@ footer a:hover{text-decoration:underline}
     var label = card ? card.querySelector('[data-light-label]') : null;
     var minB = parseFloat(el.getAttribute('data-dim-min'));
     if(isNaN(minB)) minB = 0.45;
+    var zebra = el.querySelector('.shade.zebra');
+    var zperiod = 0;
+    if(zebra){
+      zperiod = parseFloat(getComputedStyle(zebra).getPropertyValue('--zperiod')) || 40;
+    }
     var state = { pos: parseFloat(getComputedStyle(el).getPropertyValue('--shade')) || 0.35, interacted:false };
 
     function apply(p){
       state.pos = Math.min(MAX, Math.max(MIN, p));
       el.style.setProperty('--shade', state.pos);
       var openness = (MAX - state.pos) / (MAX - MIN);
-      scene.style.filter = 'brightness(' + (minB + (1 - minB) * openness).toFixed(3) + ')';
+      var floor = minB;
+      if(zebra){
+        /* both layers hang from the tube, so the front layer shifts at
+           twice the travel rate; bands align and misalign as it moves */
+        var travel = el.clientHeight * state.pos;
+        var shift = (travel * 2) % zperiod;
+        zebra.style.setProperty('--zshift', shift.toFixed(1) + 'px');
+        /* 1 = sheers aligned (see-through), 0 = solids sealing the sheers */
+        var align = Math.abs((shift / zperiod) * 2 - 1);
+        floor = 0.35 + 0.25 * align;
+      }
+      scene.style.filter = 'brightness(' + (floor + (1 - floor) * openness).toFixed(3) + ')';
       if(hem) hem.setAttribute('aria-valuenow', Math.round(state.pos * 100));
       if(label) label.textContent = state.pos > 0.85 ? 'Closed' : (state.pos > 0.45 ? 'Filtering' : 'Open');
     }
