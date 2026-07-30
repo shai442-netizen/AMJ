@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>School Gym Strip Order Form</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <h1>Gym Strip Order Form</h1>
+    <p class="sub">Embroidered navy tee &amp; shorts, shipped straight to your door.</p>
+
+    <form id="order-form">
+      <fieldset>
+        <legend>Navy Gym Tee</legend>
+        <label>Size
+          <select data-sku="navy_tee" class="size-select">
+            <option value="">No thanks</option>
+            <option value="YXS">Youth XS</option>
+            <option value="YS">Youth S</option>
+            <option value="YM">Youth M</option>
+            <option value="YL">Youth L</option>
+            <option value="YXL">Youth XL</option>
+          </select>
+        </label>
+        <label>Qty <input type="number" min="1" value="1" class="qty-input" data-sku="navy_tee" /></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Shorts with "VTT"</legend>
+        <label>Size
+          <select data-sku="vtt_shorts" class="size-select">
+            <option value="">No thanks</option>
+            <option value="YXS">Youth XS</option>
+            <option value="YS">Youth S</option>
+            <option value="YM">Youth M</option>
+            <option value="YL">Youth L</option>
+            <option value="YXL">Youth XL</option>
+          </select>
+        </label>
+        <label>Qty <input type="number" min="1" value="1" class="qty-input" data-sku="vtt_shorts" /></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Shorts, no logo</legend>
+        <label>Size
+          <select data-sku="plain_shorts" class="size-select">
+            <option value="">No thanks</option>
+            <option value="YXS">Youth XS</option>
+            <option value="YS">Youth S</option>
+            <option value="YM">Youth M</option>
+            <option value="YL">Youth L</option>
+            <option value="YXL">Youth XL</option>
+          </select>
+        </label>
+        <label>Qty <input type="number" min="1" value="1" class="qty-input" data-sku="plain_shorts" /></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Add-ons (optional)</legend>
+        <label><input type="checkbox" class="addon-check" data-sku="water_bottle" /> Embroidered water bottle</label>
+        <label><input type="checkbox" class="addon-check" data-sku="spirit_hoodie" /> School spirit hoodie</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your info</legend>
+        <label>Parent email <input required type="email" id="email" /></label>
+        <label>Child's name <input required type="text" id="childName" /></label>
+        <label>Class / division <input type="text" id="division" /></label>
+      </fieldset>
+
+      <p id="error" class="error" hidden></p>
+      <button type="submit" id="submit-btn">Checkout</button>
+    </form>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
