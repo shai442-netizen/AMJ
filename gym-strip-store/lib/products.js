@@ -1,5 +1,9 @@
 // Central catalog + pricing config for the gym strip store.
 //
+// costCents below is UNVERIFIED — every value is null until you fill it
+// in from a real Printful quote. Do not trust a number here that isn't
+// null; don't calculate margin until it's a real one either.
+//
 // HOW TO FILL THIS IN:
 // 1. Create a free Printful account -> Store -> "Add product".
 // 2. Add the youth tee (Ring Spun Cotton Youth Tee, Navy) and upload the
@@ -8,15 +12,16 @@
 // 3. For each size variant Printful creates, copy its "sync_variant_id"
 //    (Store > Products > click the variant > id shown in the URL / API).
 // 4. Paste those ids below in place of the placeholder numbers (0).
-// 5. Fill in costCents from your Printful product cost (garment + embroidery
-//    + Printful's shipping fee) so you can see your margin per item.
-//    Ballpark from public Printful pricing (verify against your own account):
-//      blank youth tee   ~$8-11 CAD  + embroidery ~$13-20 + per-1000-stitch fee
-//      blank youth shorts ~$10-14 CAD + embroidery ~$13-20 + per-1000-stitch fee
+// 5. Printful shows you the exact garment + embroidery + shipping cost per
+//    variant in the product editor — copy that into costCents (in cents).
+//    Your profit per item is retailCents - costCents - (~2.9% + $0.30 for
+//    Stripe's fee). Nobody can tell you that number until step 5 is done.
 //
-// retailCents is what the parent pays (before tax/shipping if you charge
-// those separately). Keep it below InSchoolWear's current pricing
-// (shirts $18, VTT shorts $28, no-logo shorts $23, all + tax) to be "cheaper."
+// retailCents is a starting suggestion only, picked to undercut
+// InSchoolWear's current pricing (shirts $18, VTT shorts $28, no-logo
+// shorts $23, all + tax). Re-check it once costCents is real — if your
+// actual cost is close to or above retail, raise the price before you
+// take anyone's money.
 
 const SIZES = ["YXS", "YS", "YM", "YL", "YXL"];
 
@@ -28,39 +33,42 @@ const PRODUCTS = {
   navy_tee: {
     sku: "navy_tee",
     name: "Navy Gym Tee (embroidered logo)",
-    costCents: 1600, // TODO: replace with your real Printful cost
-    retailCents: 1600, // TODO: set your retail price
+    costCents: null, // TODO: real Printful cost, in cents
+    retailCents: 1600, // suggestion only — confirm margin once costCents is real
     variantIdsBySize: emptyVariantMap(), // TODO: fill with Printful sync_variant_id per size
   },
   vtt_shorts: {
     sku: "vtt_shorts",
     name: 'Shorts with "VTT" embroidery',
-    costCents: 2200,
+    costCents: null,
     retailCents: 2500,
     variantIdsBySize: emptyVariantMap(),
   },
   plain_shorts: {
     sku: "plain_shorts",
     name: "Shorts, no logo",
-    costCents: 1800,
+    costCents: null,
     retailCents: 2000,
     variantIdsBySize: emptyVariantMap(),
   },
 };
 
-// Optional upsell add-ons shown at checkout. Add more here any time —
-// this is where the extra margin comes from beyond the core gym strip.
+// Optional upsell add-ons. Add more here any time — this is where the
+// extra margin comes from beyond the core gym strip order. Only include
+// items the decoration method actually works on: embroidery needs fabric,
+// so hats/hoodies/bags qualify; hard goods (bottles, mugs) would need a
+// different Printful product line (engraving/UV print), not embroidery.
 const ADDONS = {
-  water_bottle: {
-    sku: "water_bottle",
-    name: "Embroidered water bottle",
-    costCents: 900,
-    retailCents: 1500,
+  spirit_cap: {
+    sku: "spirit_cap",
+    name: "Embroidered ball cap",
+    costCents: null,
+    retailCents: 1800,
   },
   spirit_hoodie: {
     sku: "spirit_hoodie",
     name: "School spirit hoodie (embroidered)",
-    costCents: 2800,
+    costCents: null,
     retailCents: 4000,
   },
 };

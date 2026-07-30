@@ -4,7 +4,7 @@ const PRICES = {
   navy_tee: { name: "Navy Gym Tee", cents: 1600 },
   vtt_shorts: { name: 'Shorts with "VTT"', cents: 2500 },
   plain_shorts: { name: "Shorts, no logo", cents: 2000 },
-  water_bottle: { name: "Embroidered water bottle", cents: 1500 },
+  spirit_cap: { name: "Embroidered ball cap", cents: 1800 },
   spirit_hoodie: { name: "School spirit hoodie", cents: 4000 },
 };
 

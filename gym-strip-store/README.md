@@ -74,12 +74,20 @@ Netlify Functions work too with minor changes (move `api/` to
 
 ## Where the profit comes from
 
-Your revenue per item is `retailCents - costCents - Stripe's ~2.9% + $0.30
-fee`. The `ADDONS` section in `lib/products.js` (water bottle, spirit
-hoodie, etc.) is where you add optional upsells parents can check at
-checkout — pure margin on top of the core gym strip order. Add more
-add-ons any time by adding entries to that object and a checkbox in
-`public/index.html`.
+Your profit per item is `retailCents - costCents - Stripe's ~2.9% + $0.30
+fee`. Right now every `costCents` in `lib/products.js` is `null` — nobody
+can tell you your real margin, including this README, until you've done
+step 3 above and typed Printful's actual number in. Don't treat the
+`retailCents` starting numbers as final either; they're just a starting
+point undercutting InSchoolWear, not a promise of profit.
+
+The `ADDONS` section (embroidered cap, spirit hoodie) is where optional
+upsells live — pure margin on top of the core order, same caveat about
+`costCents` applies. Only add items the decoration method actually works
+on: embroidery needs fabric, so caps/hoodies/bags are fair game; hard
+goods like water bottles or mugs would need Printful's engraving/UV-print
+product line instead, not embroidery — don't mix decoration methods into
+one add-on list without checking which applies.
 
 ## Before you launch
 
