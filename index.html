@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#0D2A47;          /* brand dark, sampled from logo */
@@ -76,25 +76,23 @@ img,svg{max-width:100%;display:block}
 /* ---------- intro ---------- */
 #intro{
   position:fixed;inset:0;z-index:200;overflow:hidden;
-  background:linear-gradient(to bottom,var(--sky-a) 0%,#DCE5E4 45%,var(--sky-b) 100%);
+  background-image:url('assets/vancouver-seawall.jpg');
+  background-size:cover;background-position:50% 65%;
 }
 #intro.done{display:none}
 .intro-sun{
-  position:absolute;top:12%;left:62%;width:min(34vh,34vw);aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle at 40% 35%, #FBE7B4, var(--sun) 58%, rgba(232,176,75,0) 72%);
+  position:absolute;top:62%;left:38%;width:min(70vh,70vw);aspect-ratio:1;border-radius:50%;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle, rgba(255,224,150,.85), rgba(255,190,90,.4) 45%, rgba(255,190,90,0) 72%);
+  mix-blend-mode:screen;
   filter:blur(2px);
-}
-.intro-skyline{
-  position:absolute;bottom:0;left:0;right:0;height:26%;opacity:.5;
-  background:linear-gradient(to top, rgba(13,42,71,.55), rgba(13,42,71,.25));
-  clip-path:polygon(0 62%,7% 62%,7% 34%,14% 34%,14% 55%,22% 55%,22% 22%,27% 22%,27% 12%,33% 12%,33% 48%,41% 48%,41% 30%,49% 30%,49% 58%,57% 58%,57% 18%,63% 18%,63% 40%,71% 40%,71% 52%,78% 52%,78% 26%,86% 26%,86% 60%,93% 60%,93% 44%,100% 44%,100% 100%,0 100%);
 }
 .intro-logo{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   pointer-events:none;
 }
-.intro-logo svg{
-  width:min(680px,88vw);height:auto;
+.intro-logo img{
+  width:min(520px,72vw);height:auto;
   filter:drop-shadow(0 10px 30px rgba(13,42,71,.18));
 }
 .intro-shade{
@@ -135,11 +133,6 @@ img,svg{max-width:100%;display:block}
 @keyframes introOut{to{opacity:0;visibility:hidden}}
 @media (prefers-reduced-motion:reduce){#intro{display:none}}
 
-/* ---------- logo ---------- */
-.logo-amj{fill:var(--navy);font:800 96px 'Montserrat',sans-serif;letter-spacing:2px}
-.logo-blinds{fill:var(--blue);font:700 47px 'Montserrat',sans-serif;letter-spacing:14px}
-.logo-icon{fill:var(--navy)}
-
 /* ---------- top bar ---------- */
 .topbar{
   font-size:.8rem;color:var(--navy-soft);
@@ -160,12 +153,12 @@ img,svg{max-width:100%;display:block}
 }
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
 .brand{display:flex;align-items:center;text-decoration:none}
-.brand svg{height:42px;width:auto}
+.brand img{height:40px;width:auto;display:block}
 .nav-links{display:flex;gap:28px;align-items:center;list-style:none}
 .nav-links a{text-decoration:none;font-size:.92rem;font-weight:500;color:var(--navy-soft);transition:color .15s}
 .nav-links a:hover{color:var(--navy)}
 .nav .btn{padding:10px 20px;font-size:.85rem}
-@media(max-width:760px){.nav-links li.hideable{display:none}.brand svg{height:36px}}
+@media(max-width:760px){.nav-links li.hideable{display:none}.brand img{height:34px}}
 
 /* ---------- hero ---------- */
 .hero{padding:clamp(48px,7vw,96px) 0 clamp(56px,8vw,110px);overflow:hidden}
@@ -204,21 +197,18 @@ img,svg{max-width:100%;display:block}
   .window-frame{max-width:540px;margin:0 auto}
 }
 .window.mini{aspect-ratio:4/3.4;border-radius:10px;border:1px solid var(--line)}
-.scene{position:absolute;inset:0;transition:filter .15s linear}
+.scene{
+  position:absolute;inset:0;transition:filter .15s linear;
+  background-image:url('assets/vancouver-seawall.jpg');
+  background-size:cover;background-position:50% 42%;
+}
 .sun-disc{
-  position:absolute;top:16%;left:60%;width:26%;aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle at 40% 35%, #FBE7B4, var(--sun) 62%, rgba(232,176,75,0) 74%);
-  filter:blur(1px);
+  position:absolute;top:55%;left:38%;width:60%;aspect-ratio:1;border-radius:50%;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle, rgba(255,224,150,.85), rgba(255,190,90,.4) 45%, rgba(255,190,90,0) 72%);
+  mix-blend-mode:screen;
+  filter:blur(2px);
 }
-.skyline{
-  position:absolute;bottom:0;left:0;right:0;height:34%;
-  background:linear-gradient(to top, rgba(13,42,71,.55), rgba(13,42,71,.30));
-  clip-path:polygon(0 62%,7% 62%,7% 34%,14% 34%,14% 55%,22% 55%,22% 22%,27% 22%,27% 12%,33% 12%,33% 48%,41% 48%,41% 30%,49% 30%,49% 58%,57% 58%,57% 18%,63% 18%,63% 40%,71% 40%,71% 52%,78% 52%,78% 26%,86% 26%,86% 60%,93% 60%,93% 44%,100% 44%,100% 100%,0 100%)
-}
-.mullion-v,.mullion-h{position:absolute;background:rgba(251,250,246,.9);z-index:3;pointer-events:none}
-.mullion-v{top:0;bottom:0;left:50%;width:6px;transform:translateX(-50%)}
-.mullion-h{left:0;right:0;top:52%;height:6px}
-.mini .mullion-v{width:4px}
 .shade{
   position:absolute;top:0;left:0;right:0;z-index:4;
   height:calc(var(--shade)*100%);
@@ -362,6 +352,30 @@ section{padding:clamp(64px,8vw,110px) 0}
 .why-item h3{font-size:1.12rem;margin-bottom:10px}
 .why-item p{font-size:.92rem;color:var(--navy-soft)}
 
+/* gallery */
+.gallery{background:var(--linen)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:980px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.gallery-grid{grid-template-columns:1fr}}
+.gallery-item{
+  position:relative;overflow:hidden;border-radius:var(--radius);
+  aspect-ratio:4/3;background:var(--paper);
+}
+.gallery-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .5s ease;
+}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-item figcaption{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:14px 16px 12px;
+  font-size:.8rem;font-weight:500;color:var(--linen);
+  background:linear-gradient(to top, rgba(13,42,71,.85), rgba(13,42,71,0));
+  transform:translateY(6px);opacity:0;
+  transition:transform .3s ease, opacity .3s ease;
+}
+.gallery-item:hover figcaption{transform:translateY(0);opacity:1}
+
 /* commercial */
 .commercial{background:var(--navy);color:var(--paper)}
 .commercial .eyebrow{color:rgba(244,242,236,.7)}
@@ -434,7 +448,7 @@ footer{border-top:1px solid var(--line);padding:36px 0;font-size:.85rem;color:va
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
 footer a{text-decoration:none;font-weight:600;color:var(--navy)}
 footer a:hover{text-decoration:underline}
-.footer-brand svg{height:34px;width:auto;margin-bottom:8px}
+.footer-brand img{height:38px;width:auto;margin-bottom:10px;display:block}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
@@ -447,34 +461,10 @@ footer a:hover{text-decoration:underline}
 </head>
 <body class="introing">
 
-<!-- ============ LOGO (reusable SVG symbol) ============ -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="amjLogo" viewBox="0 0 640 250">
-    <g class="logo-icon">
-      <!-- headrail -->
-      <rect x="10" y="8" width="180" height="26" rx="7"/>
-      <!-- slats -->
-      <rect x="24" y="44"  width="152" height="15" rx="7"/>
-      <rect x="16" y="69"  width="168" height="15" rx="7"/>
-      <rect x="24" y="94"  width="152" height="15" rx="7"/>
-      <rect x="16" y="119" width="168" height="15" rx="7"/>
-      <rect x="24" y="144" width="152" height="15" rx="7"/>
-      <rect x="16" y="169" width="168" height="15" rx="7"/>
-      <rect x="24" y="194" width="152" height="15" rx="7"/>
-      <!-- pull cord -->
-      <rect x="118" y="209" width="4" height="22" rx="2"/>
-      <ellipse cx="120" cy="240" rx="9" ry="12"/>
-    </g>
-    <text class="logo-amj" x="230" y="118">AMJ</text>
-    <text class="logo-blinds" x="232" y="196">BLINDS</text>
-  </symbol>
-</svg>
-
 <!-- ============ INTRO ============ -->
 <div id="intro" aria-hidden="true">
   <div class="intro-sun"></div>
-  <div class="intro-skyline"></div>
-  <div class="intro-logo"><svg viewBox="0 0 640 250"><use href="#amjLogo"/></svg></div>
+  <div class="intro-logo"><img src="assets/amj-logo.png" alt="AMJ Blinds" width="1391" height="630"></div>
   <div class="intro-shade"><div class="intro-hem"></div></div>
   <button id="introSkip" type="button">Skip</button>
 </div>
@@ -489,11 +479,12 @@ footer a:hover{text-decoration:underline}
 <nav class="nav">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="AMJ Blinds home">
-      <svg viewBox="0 0 640 250" role="img" aria-label="AMJ Blinds"><use href="#amjLogo"/></svg>
+      <img src="assets/amj-logo.png" alt="AMJ Blinds" width="1391" height="630">
     </a>
     <ul class="nav-links">
       <li class="hideable"><a href="#products">Products</a></li>
       <li class="hideable"><a href="#why">Why us</a></li>
+      <li class="hideable"><a href="#gallery">Gallery</a></li>
       <li class="hideable"><a href="#commercial">Commercial</a></li>
       <li><a class="btn btn-solid" href="#quote">Free quote</a></li>
     </ul>
@@ -504,16 +495,16 @@ footer a:hover{text-decoration:underline}
   <div class="wrap">
     <div>
       <span class="eyebrow">Custom window coverings, Vancouver BC</span>
-      <h1>Control the light.<br><em>We handle the rest.</em></h1>
-      <p class="lede">Custom roller shades, zebra blinds, blackout and motorized window coverings. Measured in your home, made to fit, installed clean.</p>
+      <h1>Exactly the light you want.<br><em>Nothing you don't.</em></h1>
+      <p class="lede">Custom roller, zebra, blackout and motorized shades, precision-measured in your home and installed by the same person who quoted you — not a subcontractor you've never met.</p>
       <div class="hero-ctas">
         <a class="btn btn-solid" href="#quote">Book a free in-home quote</a>
         <a class="btn btn-ghost" href="tel:+16047214719">Call 604-721-4719</a>
       </div>
       <ul class="hero-points">
-        <li>Free consultation and measurement, no obligation</li>
-        <li>Every order sized to your windows, not off the shelf</li>
-        <li>Residential homes and full commercial buildings</li>
+        <li>Free in-home consultation, zero obligation</li>
+        <li>Every shade custom-built to your exact window</li>
+        <li>From a single room to a full commercial building</li>
       </ul>
     </div>
     <div>
@@ -521,10 +512,7 @@ footer a:hover{text-decoration:underline}
         <div class="window hero-win" id="heroWindow" data-window data-shade="zebra" style="--shade:1">
           <div class="scene">
             <div class="sun-disc"></div>
-            <div class="skyline"></div>
           </div>
-          <div class="mullion-v"></div>
-          <div class="mullion-h"></div>
           <div class="shade zebra">
             <div class="shade-hem" role="slider" tabindex="0"
                  aria-label="Zebra shade position. Use arrow keys to raise or lower."
@@ -550,7 +538,7 @@ footer a:hover{text-decoration:underline}
     <div class="section-head reveal">
       <span class="eyebrow">What we install</span>
       <h2>Four ways to get the light exactly right</h2>
-      <p>These are working demos, not pictures. Drag each shade, flip the motor switch, and watch how each fabric handles the same sun. In your home we do the same thing with real samples.</p>
+      <p>These are working demos, not renderings — drag each shade and flip the motor switch to see how each fabric actually handles the sun. At your windows, we run the same walkthrough with real fabric samples in your hand.</p>
     </div>
     <div class="grid-4">
 
@@ -558,9 +546,7 @@ footer a:hover{text-decoration:underline}
         <div class="window mini" data-window data-dim-min="0.72" style="--shade:.55">
           <div class="scene">
             <div class="sun-disc"></div>
-            <div class="skyline"></div>
           </div>
-          <div class="mullion-v"></div>
           <div class="shade screen">
             <div class="shade-hem" role="slider" tabindex="0"
                  aria-label="Roller shade position. Use arrow keys to raise or lower."
@@ -579,9 +565,7 @@ footer a:hover{text-decoration:underline}
         <div class="window mini" data-window style="--shade:.5">
           <div class="scene">
             <div class="sun-disc"></div>
-            <div class="skyline"></div>
           </div>
-          <div class="mullion-v"></div>
           <div class="shade zebra">
             <div class="shade-hem" role="slider" tabindex="0"
                  aria-label="Zebra shade position. Use arrow keys to raise or lower."
@@ -600,9 +584,7 @@ footer a:hover{text-decoration:underline}
         <div class="window mini" data-window data-dim-min="0.06" style="--shade:.3">
           <div class="scene">
             <div class="sun-disc"></div>
-            <div class="skyline"></div>
           </div>
-          <div class="mullion-v"></div>
           <div class="shade dark">
             <div class="shade-hem" role="slider" tabindex="0"
                  aria-label="Blackout shade position. Use arrow keys to raise or lower."
@@ -621,9 +603,7 @@ footer a:hover{text-decoration:underline}
         <div class="window mini" id="motorWindow" style="--shade:.15">
           <div class="scene">
             <div class="sun-disc"></div>
-            <div class="skyline"></div>
           </div>
-          <div class="mullion-v"></div>
           <div class="shade filtering">
             <div class="shade-hem" style="cursor:default">
               <div class="hem-bar"></div>
@@ -637,7 +617,7 @@ footer a:hover{text-decoration:underline}
         </div>
         <span class="tag">High end feel</span>
         <h3>Motorized shades</h3>
-        <p>Remote, wall switch or scheduled. Ideal for tall windows, hard to reach openings and homes without cords in reach of kids.</p>
+        <p>Remote, wall switch or scheduled — ideal for tall windows, hard-to-reach openings and homes without cords near kids. Motors carry the manufacturer's 5-year warranty.</p>
       </div>
 
     </div>
@@ -649,7 +629,7 @@ footer a:hover{text-decoration:underline}
     <div class="section-head reveal">
       <span class="eyebrow">Why homeowners choose us</span>
       <h2>The right look, fit and function, without the runaround</h2>
-      <p>Most blind companies send a salesperson, then a measurer, then an installer. With AMJ Blinds it is one person, start to finish.</p>
+      <p>Most blind companies send a salesperson, then a measurer, then an installer, then a different crew to fix what the last one got wrong. With AMJ Blinds it's one person, one visit, done right the first time.</p>
     </div>
     <div class="why-grid">
       <div class="why-item reveal">
@@ -672,18 +652,42 @@ footer a:hover{text-decoration:underline}
   </div>
 </section>
 
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Recent installations</span>
+      <h2>Real homes, real buildings, real windows</h2>
+      <p>No renderings, no stock photos — a few recent jobs across the Lower Mainland.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <figure class="gallery-item"><img src="assets/gallery/zebra-living-room.jpg" alt="Zebra shades in a Vancouver living room" loading="lazy"><figcaption>Zebra shades — living room</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/gallery/sheer-kitchen-dining.jpg" alt="Sheer shades in a kitchen and dining area" loading="lazy"><figcaption>Sheer shades — kitchen &amp; dining</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/gallery/zebra-dining-nook.jpg" alt="Zebra shades in a condo dining nook" loading="lazy"><figcaption>Zebra shades — dining nook</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/gallery/roller-shade-lake-view-kitchen.jpg" alt="Roller shades in a kitchen with a lake view" loading="lazy"><figcaption>Roller shades — lake view kitchen</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/gallery/living-room-zebra-wrap.jpg" alt="Zebra shades wrapping a corner window living room" loading="lazy"><figcaption>Zebra shades — corner windows</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/gallery/roller-shade-mountain-view.jpg" alt="Sheer roller shades with a mountain view" loading="lazy"><figcaption>Roller shades — mountain view</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/gallery/roller-shade-bedroom.jpg" alt="Roller shades on a bedroom window and patio door" loading="lazy"><figcaption>Roller shades — bedroom &amp; patio door</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/gallery/sheer-roller-shadows.jpg" alt="Sheer roller shades with tree shadows cast across them" loading="lazy"><figcaption>Sheer shades — filtered daylight</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/gallery/skylight-shade-detail.jpg" alt="Close-up detail of solar shade fabric on a skylight" loading="lazy"><figcaption>Solar shade — fabric detail</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/gallery/commercial-curved-glass-install.jpg" alt="Commercial installation on a curved glass wall" loading="lazy"><figcaption>Commercial — curved glass wall</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/gallery/commercial-office-blackout.jpg" alt="Row of blackout roller shades in a commercial office" loading="lazy"><figcaption>Commercial — office blackout shades</figcaption></figure>
+      <figure class="gallery-item"><img src="assets/gallery/commercial-highrise-install.jpg" alt="Large-scale commercial shade installation on scissor lift" loading="lazy"><figcaption>Commercial — large-scale install</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <section class="commercial" id="commercial">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Commercial and multi-unit</span>
       <h2>We also shade entire buildings</h2>
-      <p>Offices, developments and multi-unit residential across the Lower Mainland. If it has windows, we can motorize and automate it.</p>
+      <p>Offices, developments and multi-unit residential across the Lower Mainland — engineered and commissioned, not just supplied. If it has windows, we can motorize and automate it.</p>
     </div>
     <div class="comm-grid">
       <div class="comm-card reveal">
         <span class="comm-stat">Every system</span>
         <h3>Somfy, Lutron and more</h3>
-        <p>Wired, battery and networked motorization across all major platforms. Somfy SDN and RS485 digital networks, animeo building control, Zigbee and smart home integration, scene and schedule programming, protocol-level commissioning.</p>
+        <p>Wired, battery and networked motorization across every major platform — Somfy SDN and RS485, animeo building control, Zigbee and smart home integration. Scenes, schedules and protocol-level commissioning, configured to spec before we call it done.</p>
       </div>
       <div class="comm-card reveal">
         <span class="comm-stat">Any scale</span>
@@ -704,6 +708,7 @@ footer a:hover{text-decoration:underline}
     <div class="section-head reveal">
       <span class="eyebrow">How it works</span>
       <h2>From first message to finished install</h2>
+      <p>No sales pitch, no pressure — just the steps it actually takes to get your windows done right.</p>
     </div>
     <div class="steps">
       <div class="step reveal">
@@ -711,12 +716,12 @@ footer a:hover{text-decoration:underline}
         <p>Call or send a quick WhatsApp with your window type, room and the style you like. Photos help but are not required.</p>
       </div>
       <div class="step reveal">
-        <h3>In-home quote</h3>
-        <p>We measure every window, show fabric samples in your light, and quote on the spot. The consultation is free either way.</p>
+        <h3>Free in-home quote</h3>
+        <p>We measure every window, show fabric samples in your actual light, and quote on the spot — no obligation to book.</p>
       </div>
       <div class="step reveal">
         <h3>Custom install</h3>
-        <p>Your coverings are made to size and installed cleanly, with brackets levelled, cords secured and packaging gone when we leave.</p>
+        <p>Your shades are built to size and installed clean, with brackets levelled, cords secured and every scrap of packaging gone when we leave.</p>
       </div>
     </div>
   </div>
@@ -745,6 +750,10 @@ footer a:hover{text-decoration:underline}
         <summary>Can you match blinds in a strata or rental building?</summary>
         <div class="a">Yes. We regularly match exterior-facing colours to strata requirements and can supply documentation if your building needs it.</div>
       </details>
+      <details class="faq-item">
+        <summary>What's covered under warranty?</summary>
+        <div class="a">Motors are covered by the manufacturer's 5-year warranty. All labour and parts are covered for 1 year from install, excluding misuse.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -754,7 +763,7 @@ footer a:hover{text-decoration:underline}
     <div class="reveal">
       <span class="eyebrow">Free quote</span>
       <h2>Tell us about your windows</h2>
-      <p>Whether you already know exactly what you want or need help choosing, it starts with a quick message. We usually reply the same day.</p>
+      <p>Whether you already know exactly what you want or need help deciding, it starts with a quick message — most people hear back from us the same day.</p>
       <div class="contact-lines">
         <a href="tel:+16047214719">604-721-4719</a>
         <a href="https://wa.me/16047214719?text=Hi%20AMJ%20Blinds%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener">Message us on WhatsApp</a>
@@ -787,7 +796,7 @@ footer a:hover{text-decoration:underline}
 <footer>
   <div class="wrap">
     <div class="footer-brand">
-      <svg viewBox="0 0 640 250" role="img" aria-label="AMJ Blinds"><use href="#amjLogo"/></svg>
+      <img src="assets/amj-logo.png" alt="AMJ Blinds" width="1391" height="630">
       Custom blinds and shades, Vancouver BC
     </div>
     <div>
