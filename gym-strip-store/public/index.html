@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gym Strip Order Form</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="masthead" aria-hidden="true">
+    <div class="stripe"></div>
+  </header>
+
+  <main class="page">
+    <div class="intro">
+      <p class="eyebrow">Parent order form</p>
+      <h1>Gym Strip</h1>
+      <p class="sub">Embroidered navy tee &amp; shorts, shipped straight to your door.</p>
+    </div>
+
+    <div class="layout">
+      <form id="order-form" class="form-col" novalidate>
+        <fieldset>
+          <legend>
+            <svg class="item-icon" aria-hidden="true" viewBox="0 0 40 40" width="28" height="28">
+              <polygon class="garment" points="12,2 16,2 20,6 24,2 28,2 36,10 30,16 28,14 28,38 12,38 12,14 10,16 4,10" />
+              <rect class="logo-patch" x="21" y="14" width="7" height="5" rx="1" />
+            </svg>
+            Navy Gym Tee <span class="price-tag" data-price="navy_tee">$16.00</span>
+          </legend>
+          <label class="row">Size
+            <select data-sku="navy_tee" class="size-select">
+              <option value="">No thanks</option>
+              <option value="YXS">Youth XS</option>
+              <option value="YS">Youth S</option>
+              <option value="YM">Youth M</option>
+              <option value="YL">Youth L</option>
+              <option value="YXL">Youth XL</option>
+            </select>
+          </label>
+          <label class="row">Qty <input type="number" min="1" value="1" class="qty-input" data-sku="navy_tee" /></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            <svg class="item-icon" aria-hidden="true" viewBox="0 0 40 40" width="28" height="28">
+              <polygon class="garment" points="6,4 34,4 34,10 30,36 22,36 20,14 18,36 10,36 6,10" />
+              <rect class="logo-patch" x="21" y="17" width="6" height="5" rx="1" />
+            </svg>
+            Shorts with "VTT" <span class="price-tag" data-price="vtt_shorts">$25.00</span>
+          </legend>
+          <label class="row">Size
+            <select data-sku="vtt_shorts" class="size-select">
+              <option value="">No thanks</option>
+              <option value="YXS">Youth XS</option>
+              <option value="YS">Youth S</option>
+              <option value="YM">Youth M</option>
+              <option value="YL">Youth L</option>
+              <option value="YXL">Youth XL</option>
+            </select>
+          </label>
+          <label class="row">Qty <input type="number" min="1" value="1" class="qty-input" data-sku="vtt_shorts" /></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            <svg class="item-icon" aria-hidden="true" viewBox="0 0 40 40" width="28" height="28">
+              <polygon class="garment" points="6,4 34,4 34,10 30,36 22,36 20,14 18,36 10,36 6,10" />
+            </svg>
+            Shorts, no logo <span class="price-tag" data-price="plain_shorts">$20.00</span>
+          </legend>
+          <label class="row">Size
+            <select data-sku="plain_shorts" class="size-select">
+              <option value="">No thanks</option>
+              <option value="YXS">Youth XS</option>
+              <option value="YS">Youth S</option>
+              <option value="YM">Youth M</option>
+              <option value="YL">Youth L</option>
+              <option value="YXL">Youth XL</option>
+            </select>
+          </label>
+          <label class="row">Qty <input type="number" min="1" value="1" class="qty-input" data-sku="plain_shorts" /></label>
+        </fieldset>
+
+        <fieldset class="addons">
+          <legend>Add-ons <span class="legend-note">optional</span></legend>
+          <label class="check-row">
+            <input type="checkbox" class="addon-check" data-sku="spirit_cap" />
+            Embroidered ball cap
+            <span class="price-tag" data-price="spirit_cap">$18.00</span>
+          </label>
+          <label class="check-row">
+            <input type="checkbox" class="addon-check" data-sku="spirit_hoodie" />
+            School spirit hoodie
+            <span class="price-tag" data-price="spirit_hoodie">$40.00</span>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your info</legend>
+          <label class="row stacked">Parent email <input required type="email" id="email" /></label>
+          <label class="row stacked">Child's name <input required type="text" id="childName" /></label>
+          <label class="row stacked">Class / division <input type="text" id="division" /></label>
+        </fieldset>
+
+        <p id="error" class="error" hidden></p>
+        <button type="submit" id="submit-btn">
+          <span id="btn-label">Checkout</span>
+          <span class="btn-total" id="btn-total">$0.00</span>
+        </button>
+      </form>
+
+      <aside class="summary-col">
+        <div class="summary-card">
+          <h2>Order summary</h2>
+          <ul id="summary-list" class="summary-list">
+            <li class="empty">Nothing selected yet</li>
+          </ul>
+          <div class="summary-total-row">
+            <span>Subtotal</span>
+            <span id="summary-total">$0.00</span>
+          </div>
+          <p class="summary-note">Tax calculated at checkout. Ships direct to your door.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

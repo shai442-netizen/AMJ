@@ -1,0 +1,12 @@
+{
+  "name": "gym-strip-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Parent-facing storefront for school gym strip: Stripe Checkout + Printful fulfillment.",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "stripe": "^17.0.0"
+  }
+}
